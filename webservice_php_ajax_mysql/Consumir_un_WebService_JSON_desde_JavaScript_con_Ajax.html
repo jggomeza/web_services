@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Test consumir WebService</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- <script src="jquery.min.js"></script> -->
+
+  <script type="text/javascript">
+    // Procesar resultados del webservice
+    function webServiceResult(data)
+    {
+      $("#resultado_json").empty()    
+      // jsondata["posts"][0].post.name
+      // $("#resultado_json").append("Userid: "+data['posts'][0].post.userid+"<br>")
+      // $("#resultado_json").append("Alias: "+data['posts'][0].post.alias+"<br>")
+      // $("#resultado_json").append("Name: "+data['posts'][0].post.name+"<br>")
+      // $("#resultado_json").append("Surname: "+data['posts'][0].post.surname+"<br>")
+      // $("#resultado_json").append("Password: "+data['posts'][0].post.passwd+"<br>")
+      // $("#resultado_json").append("Url: "+data['posts'][0].post.url+"<br>")
+      // $("#resultado_json").append("Autologin: "+data['posts'][0].post.autologin+"<br>")
+      // $("#resultado_json").append("Autologout: "+data['posts'][0].post.autologout+"<br>")
+      // $("#resultado_json").append("Lang: "+data['posts'][0].post.lang+"<br>")
+      // $("#resultado_json").append("Refresh: "+data['posts'][0].post.refresh+"<br>")
+      // $("#resultado_json").append("Type: "+data['posts'][0].post.type+"<br>")
+      // $("#resultado_json").append("Theme: "+data['posts'][0].post.theme+"<br>")
+      // $("#resultado_json").append("Attempt_failed: "+data['posts'][0].post.attempt_failed+"<br>")
+      // $("#resultado_json").append("Attempt_ip: "+data['posts'][0].post.attempt_ip+"<br>")
+      // $("#resultado_json").append("Attempt_clock: "+data['posts'][0].post.attempt_clock+"<br>")
+      // $("#resultado_json").append("Rows_per_page: "+data['posts'][0].post.rows_per_page+"<br>")
+
+      // for(let element of data['posts']){
+      //   $("#resultado_json").append("<ul>")
+      //   $("#resultado_json").append("<li>Userid: "+element.post.userid+"</li>")
+      //   $("#resultado_json").append("<li>Alias: "+element.post.alias+"</li>")
+      //   $("#resultado_json").append("<li>Name: "+element.post.name+"</li>")
+      //   $("#resultado_json").append("<li>Surname: "+element.post.surname+"</li>")
+      //   $("#resultado_json").append("<li>Password: "+element.post.passwd+"</li>")
+      //   $("#resultado_json").append("<li>Url: "+element.post.url+"</li>")
+      //   $("#resultado_json").append("<li>Autologin: "+element.post.autologin+"</li>")
+      //   $("#resultado_json").append("<li>Autologout: "+element.post.autologout+"</li>")
+      //   $("#resultado_json").append("<li>Lang: "+element.post.lang+"</li>")
+      //   $("#resultado_json").append("<li>Refresh: "+element.post.refresh+"</li>")
+      //   $("#resultado_json").append("<li>Type: "+element.post.type+"</li>")
+      //   $("#resultado_json").append("<li>Theme: "+element.post.theme+"</li>")
+      //   $("#resultado_json").append("<li>Attempt_failed: "+element.post.attempt_failed+"</li>")
+      //   $("#resultado_json").append("<li>Attempt_ip: "+element.post.attempt_ip+"</li>")
+      //   $("#resultado_json").append("<li>Attempt_clock: "+element.post.attempt_clock+"</li>")
+      //   $("#resultado_json").append("<li>Rows_per_page: "+element.post.rows_per_page+"</li>")
+      //   $("#resultado_json").append("</ul>")
+      // }
+      $("#resultado_json").append('<table width="20%" border="1" cellpadding="0" cellspacing="0" bordercolor="black">')
+        $("#resultado_json").append("<thead>")
+          $("#resultado_json").append("<th>Userid</th>")
+          $("#resultado_json").append("<th>Alias</th>")
+          $("#resultado_json").append("<th>Name</th>")
+          $("#resultado_json").append("<th>Surname</th>")
+          $("#resultado_json").append("<th>Password</th>")
+          $("#resultado_json").append("<th>Url</th>")
+          $("#resultado_json").append("<th>Autologin</th>")
+          $("#resultado_json").append("<th>Autologout</th>")
+          $("#resultado_json").append("<th>Lang</th>")
+          $("#resultado_json").append("<th>Refresh</th>")
+          $("#resultado_json").append("<th>Type</th>")
+          $("#resultado_json").append("<th>Theme</th>")
+          $("#resultado_json").append("<th>Attempt_failed</th>")
+          $("#resultado_json").append("<th>Attempt_ip</th>")
+          $("#resultado_json").append("<th>Attempt_clock</th>")
+          $("#resultado_json").append("<th>Rows_per_page</th>")
+        $("#resultado_json").append("</thead>")
+        $("#resultado_json").append('<tbody>')
+          for(let element of data['posts']){
+            $("#resultado_json").append("<tr>")
+            $("#resultado_json").append("<td>"+element.post.userid+"</td>")
+            $("#resultado_json").append("<td>"+element.post.alias+"</td>")
+            $("#resultado_json").append("<td>"+element.post.name+"</td>")
+            $("#resultado_json").append("<td>"+element.post.surname+"</td>")
+            $("#resultado_json").append("<td>"+element.post.passwd+"</td>")
+            $("#resultado_json").append("<td>"+element.post.url+"</td>")
+            $("#resultado_json").append("<td>"+element.post.autologin+"</td>")
+            $("#resultado_json").append("<td>"+element.post.autologout+"</td>")
+            $("#resultado_json").append("<td>"+element.post.lang+"</td>")
+            $("#resultado_json").append("<td>"+element.post.refresh+"</td>")
+            $("#resultado_json").append("<td>"+element.post.type+"</td>")
+            $("#resultado_json").append("<td>"+element.post.theme+"</td>")
+            $("#resultado_json").append("<td>"+element.post.attempt_failed+"</td>")
+            $("#resultado_json").append("<td>"+element.post.attempt_ip+"</td>")
+            $("#resultado_json").append("<td>"+element.post.attempt_clock+"</td>")
+            $("#resultado_json").append("<td>"+element.post.rows_per_page+"</td>")
+            $("#resultado_json").append("</tr>")
+          }
+        $("#resultado_json").append('</tbody>')
+      $("#resultado_json").append("</table>")
+
+    }
+      
+    // Llamada al webservice
+    function callWebService()
+    {
+      try
+      { 
+        $.ajax({
+          // url: "http://10.156.106.204/webservice.php",
+          url: "http://localhost:90/webservice.php",
+          data:
+          {
+              format: "json",
+              limit:30,
+          },
+          type: "get",
+          async: true,
+          contentType: "text/json; charset=utf-8",
+          dataType: "json",        
+          success: function(msg) { webServiceResult(msg) },
+          error: function(jqXmlHttpRequest, textStatus, errorThrown) { alert("Error leyendo datos.") }
+        })
+      } 
+      catch (err) 
+      {
+        alert(err)
+      }
+    }
+  </script>
+  
+</head>
+
+<body>
+
+<button type="button" onclick="javascript:callWebService()">Llamar a Web Service</button>
+
+<div id="resultado_json"></div>
+
+</body>
+</html>

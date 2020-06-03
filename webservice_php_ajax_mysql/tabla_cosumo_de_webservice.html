@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Test consumir WebService</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- <script src="jquery.min.js"></script>   -->
+</head>
+
+<body>
+
+<div id="resultado_json"></div>
+
+<script type="text/javascript">
+    // Procesar resultados del webservice
+    try{ 
+        $.ajax({
+          // url: "http://10.156.106.204/webservice.php",
+          url: "http://localhost:90/webservice.php",
+          data:
+          {
+              format: "json",
+              limit:30,
+          },
+          type: "get",
+          async: true,
+          contentType: "text/json; charset=utf-8",
+          dataType: "json",        
+          success: function(msg) {
+          	$("#resultado_json").empty()
+          	$("#resultado_json").append('<table width="20%" border="1" cellpadding="0" cellspacing="0" bordercolor="black">')
+	          	$("#resultado_json").append("<thead>")
+		          	$("#resultado_json").append("<th>Userid</th>")
+			        $("#resultado_json").append("<th>Alias</th>")
+			        $("#resultado_json").append("<th>Name</th>")
+			        $("#resultado_json").append("<th>Surname</th>")
+			        $("#resultado_json").append("<th>Password</th>")
+			        $("#resultado_json").append("<th>Url</th>")
+			        $("#resultado_json").append("<th>Autologin</th>")
+			        $("#resultado_json").append("<th>Autologout</th>")
+			        $("#resultado_json").append("<th>Lang</th>")
+			        $("#resultado_json").append("<th>Refresh</th>")
+			        $("#resultado_json").append("<th>Type</th>")
+			        $("#resultado_json").append("<th>Theme</th>")
+			        $("#resultado_json").append("<th>Attempt_failed</th>")
+			        $("#resultado_json").append("<th>Attempt_ip</th>")
+			        $("#resultado_json").append("<th>Attempt_clock</th>")
+			        $("#resultado_json").append("<th>Rows_per_page</th>")
+	          	$("#resultado_json").append("</thead>")
+
+	          	for(let element of msg['posts']){
+	          	  $("#resultado_json").append("<tr>")
+	          	  $("#resultado_json").append("<td>"+element.post.userid+"</td>")
+	          	  $("#resultado_json").append("<td>"+element.post.alias+"</td>")
+	          	  $("#resultado_json").append("<td>"+element.post.name+"</td>")
+	          	  $("#resultado_json").append("<td>"+element.post.surname+"</td>")
+	          	  $("#resultado_json").append("<td>"+element.post.passwd+"</td>")
+	          	  $("#resultado_json").append("<td>"+element.post.url+"</td>")
+	          	  $("#resultado_json").append("<td>"+element.post.autologin+"</td>")
+	          	  $("#resultado_json").append("<td>"+element.post.autologout+"</td>")
+	          	  $("#resultado_json").append("<td>"+element.post.lang+"</td>")
+	          	  $("#resultado_json").append("<td>"+element.post.refresh+"</td>")
+	          	  $("#resultado_json").append("<td>"+element.post.type+"</td>")
+	          	  $("#resultado_json").append("<td>"+element.post.theme+"</td>")
+	          	  $("#resultado_json").append("<td>"+element.post.attempt_failed+"</td>")
+	          	  $("#resultado_json").append("<td>"+element.post.attempt_ip+"</td>")
+	          	  $("#resultado_json").append("<td>"+element.post.attempt_clock+"</td>")
+	          	  $("#resultado_json").append("<td>"+element.post.rows_per_page+"</td>")
+	          	  $("#resultado_json").append("</tr>")
+	          	}
+          	$("#resultado_json").append("</table>")
+          },
+          error: function(jqXmlHttpRequest, textStatus, errorThrown) { alert("Error leyendo datos.") }
+        })
+    } 
+    catch (err){
+    	alert(err)
+    }
+  </script>
+</body>
+</html>
