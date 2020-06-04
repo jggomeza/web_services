@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foros>
+    <foro>
+        <titulo>PHP</titulo>
+        <url>http://www.lawebdelprogramador.com/foros/PHP/</url>
+    </foro>
+    <foro>
+        <titulo>Java</titulo>
+        <url>http://www.lawebdelprogramador.com/foros/Java/</url>
+    </foro>
+    <foro>
+        <titulo>Access</titulo>
+        <url>http://www.lawebdelprogramador.com/foros/Access/</url>
+    </foro>
+    <foro>
+        <titulo>Windows 8</titulo>
+        <url>http://www.lawebdelprogramador.com/foros/Windows_8/</url>
+    </foro>
+    <foro>
+        <titulo>Visual Basic .NET</titulo>
+        <url>http://www.lawebdelprogramador.com/foros/Visual_Basic.NET/</url>
+    </foro>
+    <foro>
+        <titulo>JavaScript</titulo>
+        <url>http://www.lawebdelprogramador.com/foros/JavaScript/</url>
+    </foro>
+    <foro>
+        <titulo>Linux</titulo>
+        <url>http://www.lawebdelprogramador.com/foros/Linux/</url>
+    </foro>
+</foros>
+

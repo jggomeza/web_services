@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+		<meta charset="utf-8">
+		<title>Leyendo desde un documento XML</title>
+ 
+		<style>
+			div span:first-child {width:200px;display:inline-block;}
+		</style>
+</head>
+ 
+<body>
+ 
+	<h1>Consumir Web service a partir de el XML</h1>
+	 
+<script>
+	if (window.XMLHttpRequest){
+		// Objeto para IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest()
+	}else{
+		// Objeto para IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP")
+	}
+	 
+	// Abrimos el archivo que esta alojado en el servidor cd_catalog.xml
+	xmlhttp.open("GET","http://localhost:90/webservice.php?format=xml", false)
+	xmlhttp.send()
+	 
+	// Obtenemos un objeto XMLDocument con el contenido del archivo xml del servidor
+	xmlDoc=xmlhttp.responseXML;
+	 
+	// Obtenemos todos los nodos denominados foro del archivo xml
+	var posts=xmlDoc.getElementsByTagName("post")
+	 
+	// Hacemos un bucle por todos los elementos foro
+	document.write('<table width="100%" border="1" cellpadding="5" cellspacing="0" bordercolor="black">')
+		document.write("<thead>")
+			document.write("<tr>")
+				document.write("<th>userid</th>")
+				document.write("<th>alias</th>")
+				// document.write("<th>name</th>")
+				// document.write("<th>surname</th>")
+				// document.write("<th>passwd</th>")
+				// document.write("<th>url</th>")
+				document.write("<th>autologin</th>")
+				document.write("<th>autologout</th>")
+				document.write("<th>lang</th>")
+				document.write("<th>refresh</th>")
+				document.write("<th>type</th>")
+				document.write("<th>theme</th>")
+				document.write("<th>attempt_failed</th>")
+				// document.write("<th>attempt_ip</th>")
+				document.write("<th>attempt_clock</th>")
+				document.write("<th>rows_per_page</th>")
+			document.write("</tr>")
+		document.write("</thead>")
+		document.write("<tbody>")
+			for(var i=0; i<posts.length; i++)
+			{
+				// Del elemento foro, obtenemos del primer elemento denominado "titulo"
+				// el valor del primer elemento interno
+				
+			 
+				// alias=posts[i].getElementsByTagName("alias")[0].childNodes[0].nodeValue
+				document.write("<tr>")
+					document.write("<td>"+posts[i].getElementsByTagName("userid")[0].childNodes[0].nodeValue+"</td>")
+					document.write("<td>"+posts[i].getElementsByTagName("alias")[0].childNodes[0].nodeValue+"</td>")
+          // document.write("<td>"+posts[i].getElementsByTagName("name")[0].childNodes[0].nodeValue+"</td>")
+          // document.write("<td>"+posts[i].getElementsByTagName("surname")[0].childNodes[0].nodeValue+"</td>")
+          // document.write("<td>"+posts[i].getElementsByTagName("passwd")[0].childNodes[0].nodeValue+"</td>")
+          // document.write("<td>"+posts[i].getElementsByTagName("url")[0].childNodes[0].nodeValue+"</td>")
+          document.write("<td>"+posts[i].getElementsByTagName("autologin")[0].childNodes[0].nodeValue+"</td>")
+          document.write("<td>"+posts[i].getElementsByTagName("autologout")[0].childNodes[0].nodeValue+"</td>")
+          document.write("<td>"+posts[i].getElementsByTagName("lang")[0].childNodes[0].nodeValue+"</td>")
+          document.write("<td>"+posts[i].getElementsByTagName("refresh")[0].childNodes[0].nodeValue+"</td>")
+          document.write("<td>"+posts[i].getElementsByTagName("type")[0].childNodes[0].nodeValue+"</td>")
+          document.write("<td>"+posts[i].getElementsByTagName("theme")[0].childNodes[0].nodeValue+"</td>")
+          document.write("<td>"+posts[i].getElementsByTagName("attempt_failed")[0].childNodes[0].nodeValue+"</td>")
+          // document.write("<td>"+posts[i].getElementsByTagName("attempt_ip")[0].childNodes[0].nodeValue+"</td>")
+          document.write("<td>"+posts[i].getElementsByTagName("attempt_clock")[0].childNodes[0].nodeValue+"</td>")
+          document.write("<td>"+posts[i].getElementsByTagName("rows_per_page")[0].childNodes[0].nodeValue+"</td>")
+      	document.write("<tr>")
+			}
+		document.write("</tbody>")
+	document.write("</table>")
+</script>
+</body>
+</html>

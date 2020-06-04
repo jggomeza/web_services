@@ -57,7 +57,7 @@ if(isset($_GET['format'])) {
 					echo '<',$key,'>';
 					if(is_array($value)) {
 						foreach($value as $tag => $val) {
-							echo '<',$tag,'>',htmlentities($val),'</',$tag,'>';
+							echo '<',$tag,'>',utf8_encode($val),'</',$tag,'>';
 						}
 					}
 					echo '</',$key,'>';
