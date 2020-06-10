@@ -10,7 +10,7 @@ if(isset($_GET['format'])) {
 
 	/* conectamos a la bd */
 	// $mysqli = new mysqli('ip_server','user','password', 'database');
-	$mysqli = new mysqli('localhost','root','password', 'zabbix');
+	$mysqli = new mysqli('ip_server','zabbix','password', 'zabbix');
 
 	/* sacamos los posts de bd */
 	// $query = "SELECT * FROM users WHERE userid=".$_GET['userid'];

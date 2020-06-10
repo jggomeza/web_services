@@ -6,6 +6,18 @@
  
 		<style>
 			div span:first-child {width:200px;display:inline-block;}
+			td{
+				text-align: center;
+			}
+			th{
+				text-transform: uppercase;
+				font-weight: bold;
+			}
+			table{
+				display: table;
+				margin: auto;
+				/*text-transform: uppercase;*/
+			}
 		</style>
 </head>
  
@@ -23,7 +35,7 @@
 	}
 	 
 	// Abrimos el archivo que esta alojado en el servidor cd_catalog.xml
-	xmlhttp.open("GET","http://localhost:90/webservice.php?format=xml", false)
+	xmlhttp.open("GET","http://localhost/web_services/webservice_php_ajax_mysql/webservice.php?format=xml", false)
 	xmlhttp.send()
 	 
 	// Obtenemos un objeto XMLDocument con el contenido del archivo xml del servidor
@@ -33,7 +45,7 @@
 	var posts=xmlDoc.getElementsByTagName("post")
 	 
 	// Hacemos un bucle por todos los elementos foro
-	document.write('<table width="100%" border="1" cellpadding="5" cellspacing="0" bordercolor="black">')
+	document.write('<table width="50%" border="1" cellpadding="5" cellspacing="0" bordercolor="black">')
 		document.write("<thead>")
 			document.write("<tr>")
 				document.write("<th>userid</th>")
